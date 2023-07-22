@@ -266,13 +266,13 @@ const navigationConfig = [
     icon: "heroicons-outline:cube",
     translate: "Sequence-Campaigns",
     children: [
-      {
-        id: "Create Campaign",
-        title: "Create Campaign",
-        icon: "heroicons-outline:document-add",
-        type: "item",
-        url: "/sequenceCampaigns/createCampaign",
-      },
+      // {
+      //   id: "Create Campaign",
+      //   title: "Create Campaign",
+      //   icon: "heroicons-outline:document-add",
+      //   type: "item",
+      //   url: "/sequenceCampaigns/createCampaign",
+      // },
       {
         id: "View Campaign",
         title: "View Campaign",
@@ -479,7 +479,6 @@ const navigationConfig = [
     ],
   },
 
-
   {
     id: "Subscription Marketing",
     title: " Subscription Marketing ",
@@ -500,8 +499,6 @@ const navigationConfig = [
       //   icon: "heroicons-outline:user-group",
       //   url: "/subscriptionMarketting/addUser",
       //  },
-
-       
       // {
       //   id: ".EmailMarketing.AddContacts",
       //   title: "Add Contacts",
