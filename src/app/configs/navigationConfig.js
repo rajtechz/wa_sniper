@@ -537,5 +537,24 @@ const navigationConfig = [
   },
 
 
+
+
+  {
+    id: "SocialPosting.ContactGroups",
+    title: " Sosial Posting",
+    type: "group",
+    // translate: "Sosial Posting",
+    children: [
+      {
+        id: " SocialPosting.ContactGroups",
+        title: "Sosial Posting",
+        type: "item",
+        icon: "heroicons-outline:user-group",
+        url: "/socialPost/contactGroups",
+       },
+     
+    ],
+  },
+
 ];
 export default navigationConfig;

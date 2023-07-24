@@ -148,7 +148,7 @@ export default function AddUser() {
                 onChange={handleTabChange}
                 sx={{
                   "& .MuiTabs-indicator": {
-                    backgroundColor: "blue", // Replace with the desired border color
+                    backgroundColor: "blue", 
                   },
                 }}
               >
@@ -440,15 +440,14 @@ export default function AddUser() {
                             borderRadius: 5,
                             backgroundColor: "white",
                             color: "#000fff",
-                            border: "2px solid #000fff", // Border color of #000fff
-                            display: "flex", // To align the icon with the text
-                            alignItems: "center", // To vertically align the icon with the text
-                            justifyContent: "space-between", // To push the icon to the start of the button
-                            padding: "8px", // Add some padding to make the button look more spacious
+                            border: "2px solid #000fff", 
+                            display: "flex", 
+                            alignItems: "center", 
+                            justifyContent: "space-between",
+                            padding: "8px", 
                           }}
                         >
                           <AddIcon sx={{ marginRight: "8px" }} /> Add More Hour{" "}
-                          {/* Add the AddIcon before the text */}
                         </Button>
 
                         <Button
@@ -457,9 +456,8 @@ export default function AddUser() {
                           style={{
                             borderRadius: 5,
                             backgroundColor: "gray",
-                            alignItems: "center", // To vertically align the icon with the text
-                           
-                            padding: "8px", // Add some padding to make the button look more spacious
+                            alignItems: "center", 
+                            padding: "8px", 
                           }}>
                           <CloseIcon sx={{ marginRight: "8px" }} /> remove last
                           hour
@@ -487,11 +485,11 @@ export default function AddUser() {
           <Button
             variant="contained"
             sx={{
-              borderRadius: "0", // Set border radius to 0 to remove rounded corners
-              backgroundColor: "#000fff", // Set the background color to blue
+              borderRadius: "0",
+              backgroundColor: "#000fff",
               color: "#fff",
               "&:hover": {
-                backgroundColor: "#000fff", // Set the same background color on hover
+                backgroundColor: "#000fff",
               },
             }}
           >
