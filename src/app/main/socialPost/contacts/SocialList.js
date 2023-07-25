@@ -20,16 +20,17 @@ import HtmlIcon from "@mui/icons-material/Html";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import RssFeedIcon from "@mui/icons-material/RssFeed";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Link, useNavigate } from "react-router-dom";
 const cardStyles = {
-
   borderRadius: 0,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   height: "250px", // Set a fixed height for the card
   width: "100%", // Set a fixed width for the card
-  cursor:"pointer",
+  cursor: "pointer",
+  textDecoration: "none",
 };
 
 // Style for the content inside the cards
@@ -63,6 +64,11 @@ const useStyles = makeStyles((theme) => ({
 
 function SocialList() {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const fbInstaPage = () => {
+    navigate("/socialPost/contactGroups/FacebookAndInstaPost");
+  };
   return (
     <>
       <Box sx={{ p: 2 }}>
@@ -82,24 +88,31 @@ function SocialList() {
             <Grid item xs={12} sm={6} md={3}>
               <Paper>
                 <Box sx={{ minWidth: 275 }}>
-                  <Card variant="outlined" sx={cardStyles}>
-                    <CardContent sx={cardContentStyles}>
-                      <TelegramIcon sx={{ fontSize: "65px" }} />
-                      <Typography
-                        sx={{
-                          fontSize: "16px",
-                          color: "#000fff",
-                          mb: 3,
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Multimedia Post
-                      </Typography>
-                      <Typography sx={{ fontSize: "18px", mb: 3 }}>
-                        Post, Text, Link, Image, video on Facebook & Instagram
-                        automatically
-                      </Typography>
-                    </CardContent>
+                  <Card
+                    variant="outlined"
+                    sx={cardStyles}
+                    onClick={fbInstaPage}
+                  >
+                    <Box>
+                      <CardContent sx={cardContentStyles}>
+                        <TelegramIcon sx={{ fontSize: "65px" }} />
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "#000fff",
+                            mb: 3,
+
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Multimedia Post
+                        </Typography>
+                        <Typography sx={{ fontSize: "18px", mb: 3 }}>
+                          Post, Text, Link, Image, video on Facebook & Instagram
+                          automatically
+                        </Typography>
+                      </CardContent>
+                    </Box>
                   </Card>
                 </Box>
               </Paper>
@@ -353,8 +366,8 @@ function SocialList() {
                       <Box>
                         <div className={classes.container}>
                           <Button className={classes.button}>
-                            <Box sx={{ display: "flex", gap:"10px" }}>
-                              <RssFeedIcon  />
+                            <Box sx={{ display: "flex", gap: "10px" }}>
+                              <RssFeedIcon />
 
                               <Typography
                                 sx={{
@@ -363,16 +376,13 @@ function SocialList() {
                                   fontWeight: "bold",
                                 }}
                               >
-                              
                                 Rss feed
                               </Typography>
                               <KeyboardArrowRightIcon />
                             </Box>
                           </Button>
                           <Button className={classes.button}>
-
-
-                          <Box sx={{ display: "flex" ,gap:"10px"}}>
+                            <Box sx={{ display: "flex", gap: "10px" }}>
                               <YouTubeIcon />
 
                               <Typography
@@ -382,7 +392,7 @@ function SocialList() {
                                   fontWeight: "bold",
                                 }}
                               >
-                               Youtube Video
+                                Youtube Video
                               </Typography>
                               <KeyboardArrowRightIcon />
                             </Box>

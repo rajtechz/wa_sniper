@@ -43,7 +43,7 @@ const navigationConfig = [
         title: "Multimedia Post",
         type: "item",
         icon: "heroicons-outline:video-camera",
-        url: "/facebook/instagram/media",
+        url: "/facebook/instagram/multiMediaPost/MultiMediaPostApp",
       },
       {
         id: "Facebook-Instagram.CTA Post",
@@ -148,60 +148,6 @@ const navigationConfig = [
     ],
   },
 
-
-  // {
-  //   id: "SMS Marketing",
-  //   title: "SMS Marketing",
-  //   type: "group",
-  //   translate: "Sms-Marketing",
-  //   children: [
-  //     {
-  //       id: "SMSMarketing.Contact Groups",
-  //       title: "SMS Groups",
-  //       type: "item",
-  //       icon: "heroicons-outline:user-group",
-  //       url: "/smsMarketting/contactGroups",
-  //     },
-  //     {
-  //       id: "Add Contacts",
-  //       title: "Add Contacts",
-  //       icon: "heroicons-outline:plus",
-  //       type: "item",
-  //       url: "/smsMarketing/addContacts",
-  //     },
-  //     {
-  //       id: "Manage Templates",
-  //       title: "Manage Templates",
-  //       type: "item",
-  //       icon: "heroicons-outline:template",
-  //       url: "/smsMarketing/manageTemplates",
-  //     },
-  //     {
-  //       id: "Create Campaign",
-  //       title: "Create Campaign",
-  //       type: "item",
-  //       icon: "heroicons-outline:document-add",
-  //       url: "/emailMarketting/createCampaign",
-  //     },
-  //     {
-  //       id: "Campaign Reports",
-  //       title: "Campaign Reports",
-  //       type: "item",
-  //       icon: "heroicons-outline:document-report",
-  //       url: "/emailMarketting/campaignReports",
-  //     },
-  //     {
-  //       id: "Connect API",
-  //       title: "Connect API",
-  //       type: "item",
-  //       icon: "heroicons-outline:server",
-  //       url: "/emailMarketting/connectApi",
-  //     },
-  //   ],
-  // },
-
-
-
   {
     id: "Message Marketing",
     title: " Message Marketing ",
@@ -214,10 +160,8 @@ const navigationConfig = [
         type: "item",
         icon: "heroicons-outline:user-group",
         url: "/messageMarketting/contactGroups",
-       },
+      },
 
-
-       
       {
         id: ".EmailMarketing.AddContacts",
         title: "Add Contacts",
@@ -254,10 +198,6 @@ const navigationConfig = [
       },
     ],
   },
-
-
-
-
 
   {
     id: "Sequence Campaigns",
@@ -491,7 +431,7 @@ const navigationConfig = [
         type: "item",
         icon: "heroicons-outline:user-group",
         url: "/subscriptionMarketting/contactGroups",
-       },
+      },
       //  {
       //   id: " SubscriptionMarketing.ContactGroups",
       //   title: "Users Manager",
@@ -536,9 +476,6 @@ const navigationConfig = [
     ],
   },
 
-
-
-
   {
     id: "SocialPosting.ContactGroups",
     title: " Sosial Posting",
@@ -551,10 +488,8 @@ const navigationConfig = [
         type: "item",
         icon: "heroicons-outline:user-group",
         url: "/socialPost/contactGroups",
-       },
-     
+      },
     ],
   },
-
 ];
 export default navigationConfig;
