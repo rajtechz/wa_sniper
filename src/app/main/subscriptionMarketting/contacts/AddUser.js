@@ -143,10 +143,9 @@ export default function AddUser() {
           </Box>
 
           <Box>
-
             <Grid container spacing={2}>
               <Grid item xs={12} sm={4}>
-            <Typography> User Type </Typography>
+                <Typography> User Type </Typography>
 
                 <FormControlLabel
                   control={
@@ -157,32 +156,33 @@ export default function AddUser() {
                       size="medium"
                       name="Member"
                     />
-}
+                  }
                   label="Member"
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={!showComponentA}
-                    onChange={toggleComponent}
-                    defaultChecked
-                    size="medium"
-                    name="Admin"
-                  />
-                }
-                label="Admin"
-              />
+                <FormControlLabel
+                  control={
+                    <Switch
+                      checked={!showComponentA}
+                      onChange={toggleComponent}
+                      defaultChecked
+                      size="medium"
+                      name="Admin"
+                    />
+                  }
+                  label="Admin"
+                />
               </Grid>
               <Grid item xs={12} sm={4}>
-              <FormControlLabel
-                control={<Switch defaultChecked size="medium" name="Active" />}
-                label="Active"
-              />
+                <FormControlLabel
+                  control={
+                    <Switch defaultChecked size="medium" name="Active" />
+                  }
+                  label="Active"
+                />
               </Grid>
             </Grid>
-          
           </Box>
           {showComponentA ? (
             <Box>

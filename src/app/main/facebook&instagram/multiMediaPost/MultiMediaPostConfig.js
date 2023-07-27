@@ -1,9 +1,6 @@
 import { lazy } from 'react';
-
+import CreateNewPost from './CreateNewPost';
 const MultiMediaPostApp = lazy(() => import('./MultiMediaPostApp'));
-
-
-
 const multiMediaPostConfig = {
   settings: {
     layout: {
@@ -15,10 +12,10 @@ const multiMediaPostConfig = {
       path: '/facebook/instagram/multiMediaPost/MultiMediaPostApp',
       element: <MultiMediaPostApp />,
     },
-    // {
-    //   path :"/facebook/instagram/multiMediaPost/MultiMediaPostApp",
-    //  element: <Campaign/>
-    // }                       
+    {
+      path :"/facebook/instagram/multiMediaPost/MultiMediaPostApp/CreateNewPost",
+     element: <CreateNewPost/>
+    }                       
   ],
 };
 

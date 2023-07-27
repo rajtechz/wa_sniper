@@ -16,7 +16,6 @@ import authRoleExamplesConfigs from "../main/auth/authRoleExamplesConfigs";
 import messageMarketingConfig from "../main/messageMarketting/messageMarkettingConfig";
 import subscriptionMarketingConfig from "../main/subscriptionMarketting/subscriptionMarkettingConfig";
 import sequenceViewConfig from "../main/sequenceCampaigns/sequenceViewConfig";
-import socialPostingConfig from "../main/socialPost/socialPostingConfig";
 const routeConfigs = [
   ...appsConfigs,
   ...dashboardsConfigs,
@@ -29,7 +28,6 @@ const routeConfigs = [
   ...messageMarketingConfig,
   ...subscriptionMarketingConfig,
   ...sequenceViewConfig,
-  ...socialPostingConfig,
   SignOutConfig,
   SignInConfig,
   SignUpConfig,
