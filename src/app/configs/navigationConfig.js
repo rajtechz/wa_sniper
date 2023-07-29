@@ -46,6 +46,13 @@ const navigationConfig = [
         url: "/facebook/instagram/multiMediaPost/MultiMediaPostApp",
       },
       {
+        id: "Facebook-Instagram.Pages",
+        title: "Pages",
+        type: "item",
+        icon: "heroicons-outline:document-report",
+        url: "/facebook/instagram/pages",
+      },
+      {
         id: "Facebook-Instagram.CTA Post",
         title: "CTA Post",
         type: "item",

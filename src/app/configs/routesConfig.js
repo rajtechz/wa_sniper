@@ -28,6 +28,7 @@ const routeConfigs = [
   ...messageMarketingConfig,
   ...subscriptionMarketingConfig,
   ...sequenceViewConfig,
+
   SignOutConfig,
   SignInConfig,
   SignUpConfig,

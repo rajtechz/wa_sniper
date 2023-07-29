@@ -77,7 +77,7 @@ const TabPanel = ({ children, value, index }) => {
   );
 };
 
-export default function CreateNewPost() {
+export default function CreateNewPage() {
   const [selectedTab, setSelectedTab] = React.useState(0);
 
   const handleTabChange = (event, newValue) => {
@@ -390,7 +390,35 @@ export default function CreateNewPost() {
                               <Typography> Time Zone</Typography>
 
                               <FormControl sx={{ width: "100%" }}>
-                                
+                                <Select
+                                  size="small"
+                                  multiple
+                                  displayEmpty
+                                  value={personName}
+                                  onChange={handleChange}
+                                  input={<OutlinedInput />}
+                                  renderValue={(selected) => {
+                                    if (selected.length === 0) {
+                                      return <p>Please select</p>;
+                                    }
+                                    return selected.join(", ");
+                                  }}
+                                  MenuProps={MenuProps}
+                                  inputProps={{ "aria-label": "Without label" }}
+                                >
+                                  <MenuItem disabled value="">
+                                    <p>Please select </p>
+                                  </MenuItem>
+                                  {names.map((name) => (
+                                    <MenuItem
+                                      key={name}
+                                      value={name}
+                                      style={getStyles(name, personName, theme)}
+                                    >
+                                      {name}
+                                    </MenuItem>
+                                  ))}
+                                </Select>
                               </FormControl>
                             </Box>
                           </Box>
@@ -403,13 +431,53 @@ export default function CreateNewPost() {
                                 variant="outlined"
                                 type="number"
                               >
-                               
+                                <OutlinedInput
+                                  type="number"
+                                  id="outlined-adornment-weight"
+                                  endAdornment={
+                                    <InputAdornment position="end">
+                                      Times
+                                    </InputAdornment>
+                                  }
+                                  aria-describedby="outlined-weight-helper-text"
+                                  inputProps={{
+                                    "aria-label": "weight",
+                                  }}
+                                />
                               </FormControl>
                             </Box>
                             <Box sx={{ width: "50%" }}>
                               <Typography>Time interval</Typography>
                               <FormControl sx={{ width: "100%" }}>
-                            
+                                <Select
+                                  size="small"
+                                  multiple
+                                  displayEmpty
+                                  value={personName}
+                                  onChange={handleChange}
+                                  input={<OutlinedInput />}
+                                  renderValue={(selected) => {
+                                    if (selected.length === 0) {
+                                      return <p>Please select</p>;
+                                    }
+                                    return selected.join(", ");
+                                  }}
+                                  MenuProps={MenuProps}
+                                  inputProps={{ "aria-label": "Without label" }}
+                                >
+                                  <MenuItem disabled value="">
+                                    <p>Please select </p>
+                                  </MenuItem>
+                                  {names.map((name) => (
+                                    <MenuItem
+                                      key={name}
+                                      value={name}
+                                      style={getStyles(name, personName, theme)}
+                                    >
+                                      {name}
+                                    </MenuItem>
+                                  ))}
+                                </Select>
                               </FormControl>
                             </Box>
                           </Box>
@@ -437,7 +505,7 @@ export default function CreateNewPost() {
                   sx={{
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center", 
+                    alignItems: "center",
                   }}
                 >
                   <Switch />

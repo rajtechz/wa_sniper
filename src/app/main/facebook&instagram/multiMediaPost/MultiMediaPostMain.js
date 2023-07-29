@@ -110,7 +110,6 @@ export default function MultiMediaPostMain() {
             </Typography>
 
             <Button
-              sx={{ borderRadius: 0 }}
               component={Link}
               to="/facebook/instagram/multiMediaPost/MultiMediaPostApp/CreateNewPost"
               variant="contained"
@@ -139,12 +138,14 @@ export default function MultiMediaPostMain() {
               >
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <InputLabel id="demo-simple-select-label">Any Type</InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       value={age}
-                      label="Age"
+                      label="Any Type"
+                  size="small"
+
                       onChange={handleChange}
                     >
                       <MenuItem value={10}>Ten</MenuItem>
@@ -155,12 +156,14 @@ export default function MultiMediaPostMain() {
                 </Box>
                 <Box sx={{ minWidth: 120 }}>
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <InputLabel id="demo-simple-select-label">All pages</InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
+                  size="small"
+
                       value={age}
-                      label="Age"
+                      label="All pages"
                       onChange={handleChange}
                     >
                       <MenuItem value={10}>Ten</MenuItem>
@@ -171,11 +174,12 @@ export default function MultiMediaPostMain() {
                 </Box>
                 <TextField
                   id="outlined-search"
-                  label="Search field"
+                  label="Search..." 
                   type="search"
+                  size="small"
                 />
                 <Button
-                  sx={{ borderRadius: 0 }}
+                sx={{marginLeft:2}}
                   variant="contained"
                   color="secondary"
                   startIcon={<SearchIcon />}
@@ -192,7 +196,7 @@ export default function MultiMediaPostMain() {
                 }}
               >
                 <Button
-                  sx={{ borderRadius: 0 }}
+                
                   variant="contained"
                   color="secondary"
                   startIcon={<DateRangeIcon />}
