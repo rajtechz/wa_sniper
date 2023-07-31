@@ -9,25 +9,17 @@ const tagsDB = mockApi.components.examples.tasks_tags.value;
 mock.onGet('/api/tasks').reply((config) => {
   return [200, tasksDB];
 });
-
 mock.onPost('/api/tasks').reply(({ data }) => {
   const newtask = { id: FuseUtils.generateGUID(), ...JSON.parse(data) };
-
   tasksDB.push(newtask);
-
-  return [200, newtask];
+  return [200, newtask]
 });
-
 mock.onPost('/api/tasks/reorder').reply(({ data }) => {
   const { startIndex, endIndex } = JSON.parse(data);
   const ordered = _.merge([], tasksDB);
-
   const [removed] = ordered.splice(startIndex, 1);
-
   ordered.splice(endIndex, 0, removed);
-
   tasksDB = ordered;
-
   return [200, tasksDB];
 });
 
@@ -57,7 +49,6 @@ mock.onDelete(/\/api\/tasks\/[^/]+/).reply((config) => {
 
   return [200, id];
 });
-
 mock.onGet('/api/tasks/tags').reply((config) => {
   return [200, tagsDB];
 });

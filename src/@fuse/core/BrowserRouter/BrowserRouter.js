@@ -15,7 +15,7 @@ function BrowserRouter({ basename, children, window }) {
       basename={basename}
       location={state.location}
       navigationType={state.action}
-      navigator={history}
+      navigator={history} 
     >
       {children}
     </Router>

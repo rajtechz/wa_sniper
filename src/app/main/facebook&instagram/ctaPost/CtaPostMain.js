@@ -6,7 +6,6 @@ import {
   Paper,
   FormControlLabel,
   Switch,
-  InputAdornment,
 } from "@mui/material";
 import * as React from "react";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
@@ -19,17 +18,17 @@ import dayjs from "dayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
-import { DesktopDateTimePicker } from "@mui/x-date-pickers/DesktopDateTimePicker";
-import { StaticDateTimePicker } from "@mui/x-date-pickers/StaticDateTimePicker";
+import FacebookIcon from "@material-ui/icons/Facebook";
 export default function CtaPostMain() {
   const [isSwitchOn, setIsSwitchOn] = React.useState(true);
 
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
-
+  const handleGoBack = () => {
+    window.history.back();
+  };
   return (
     <>
       <Box sx={{ p: 2 }}>
@@ -63,7 +62,6 @@ export default function CtaPostMain() {
             <Typography> add cta post</Typography>
           </Box>
         </Box>
-
         <Box mt={2}>
           <Grid container spacing={2}>
             <Grid item xs={8}>
@@ -169,24 +167,19 @@ export default function CtaPostMain() {
                         <Box sx={{ display: "flex", gap: 1 }}>
                           <Box sx={{ width: "50%" }}>
                             <Typography>Schedule time</Typography>
-                            <FormControl
-                              size="small"
-                              sx={{ width: "100%",  }}
-                            >
-                             
-
+                            <FormControl size="small" sx={{ width: "100%" }}>
                               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DemoContainer 
+                                <DemoContainer
                                   components={[
                                     "DateTimePicker",
                                     "MobileDateTimePicker",
                                     "DesktopDateTimePicker",
                                     "StaticDateTimePicker",
-                                    
                                   ]}
                                 >
-                                  <DemoItem >
-                                    <MobileDateTimePicker  size="small"
+                                  <DemoItem>
+                                    <MobileDateTimePicker
+                                      size="small"
                                       defaultValue={dayjs("2022-04-17T15:30")}
                                     />
                                   </DemoItem>
@@ -227,7 +220,6 @@ export default function CtaPostMain() {
                           </Box>
                           <Box sx={{ width: "50%" }}>
                             <Typography>Time interval</Typography>
-
                             <FormControl
                               size="small"
                               sx={{ width: "100%", mt: 1 }}
@@ -243,8 +235,8 @@ export default function CtaPostMain() {
                       </Box>
                     )}
                   </Box>
-
-                  <Box mt={2}>
+                  <Box mt={2} sx={{ display: "flex", justifyContent: "space-between" }}
+                  >
                     <Button
                       variant="contained"
                       color="secondary"
@@ -252,12 +244,29 @@ export default function CtaPostMain() {
                     >
                       Submit
                     </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleGoBack}
+                    >
+                      cancle
+                    </Button>
                   </Box>
                 </Box>
               </Paper>
             </Grid>
             <Grid item xs={4}>
-              <Paper sx={{ p: 2, borderRadius: 0 }}>Column 2</Paper>
+              <Paper sx={{ p: 2, borderRadius: 0 }}>
+                <Box>
+                  <Typography>
+                    <FacebookIcon
+                      fontSize="small"
+                      style={{ color: "#3b5998" }}
+                    />
+                    Preview
+                  </Typography>
+                </Box>
+              </Paper>
             </Grid>
           </Grid>
         </Box>

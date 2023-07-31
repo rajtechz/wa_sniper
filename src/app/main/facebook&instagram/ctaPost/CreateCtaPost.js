@@ -485,7 +485,7 @@ export default function CreateCtaPost() {
                       )}
                     </Box>
 
-                    <Box mt={2}>
+                    <Box mt={2} >
                       <Button
                         variant="contained"
                         color="secondary"
@@ -493,6 +493,8 @@ export default function CreateCtaPost() {
                       >
                         Submit
                       </Button>
+                    
+
                     </Box>
                   </Box>
                 </Box>

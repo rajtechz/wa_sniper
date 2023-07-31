@@ -25,9 +25,16 @@ import LinkIcon from "@mui/icons-material/Link";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import Paper from "@mui/material/Paper";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
 import { Button } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import Autocomplete from "@mui/material/Autocomplete";
+import {
+  LocalizationProvider,
+  MobileDateTimePicker,
+} from "@mui/x-date-pickers";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 const options = [
   { value: "apple", label: "Apple" },
   { value: "banana", label: "Banana" },
@@ -77,6 +84,12 @@ const TabPanel = ({ children, value, index }) => {
   );
 };
 
+
+const timeZones = [
+  { value: '-12:00', label: '(GMT -12:00) International Date Line West' },
+  // Add more time zones here
+  { value: '+14:00', label: '(GMT +14:00) Line Islands' },
+];
 export default function CreateNewPost() {
   const [selectedTab, setSelectedTab] = React.useState(0);
 
@@ -103,7 +116,6 @@ export default function CreateNewPost() {
     );
   };
 
-  
   return (
     <>
       <Box sx={{ p: 2 }}>
@@ -125,11 +137,11 @@ export default function CreateNewPost() {
             </Typography>
           </Box>
 
-          <Box sx={{ display: "flex" }}>
+          {/* <Box sx={{ display: "flex" }}>
             <Typography sx={{ color: "#000fff" }}>Social Posting/</Typography>
             <Typography sx={{ color: "#000fff" }}>Multimedia post/</Typography>
             <Typography>Multimedia post</Typography>
-          </Box>
+          </Box> */}
         </Box>
         <Box sx={{ p: 2 }}>
           <Grid container>
@@ -283,7 +295,7 @@ export default function CreateNewPost() {
                           lg Media Manual
                         </Button>
                       </Box>
-                      <Box mt={1}>               
+                      <Box mt={1}>
                         <Button
                           sx={{
                             borderRadius: 1,
@@ -380,17 +392,49 @@ export default function CreateNewPost() {
                           <Box sx={{ display: "flex", gap: 1 }}>
                             <Box sx={{ width: "50%" }}>
                               <Typography>Schedule time</Typography>
-                              <TextField
-                                id="outlined-basic"
-                                variant="outlined"
-                                size="small"
-                              />
+                           
+                              <FormControl size="small" sx={{ width: "100%" }}>
+                                <LocalizationProvider
+                                  dateAdapter={AdapterDayjs}
+                                >
+                                  <DemoContainer
+                                    components={[
+                                      "DateTimePicker",
+                                      "MobileDateTimePicker",
+                                      "DesktopDateTimePicker",
+                                      "StaticDateTimePicker",
+                                    ]}
+                                  >
+                                    <DemoItem>
+                                      <MobileDateTimePicker
+                                        size="small"
+                                        defaultValue={dayjs("2022-04-17T15:30")}
+                                      />
+                                    </DemoItem>
+                                  </DemoContainer>
+                                </LocalizationProvider>
+                              </FormControl>
                             </Box>
                             <Box sx={{ width: "50%" }}>
                               <Typography> Time Zone</Typography>
 
-                              <FormControl sx={{ width: "100%" }}>
+                              <FormControl sx={{ width: "100%" ,mt:1}}>
+                                <FormControl fullWidth variant="outlined">
                                 
+                                  <Select
+                                    id="gmt-timezone"
+                                  
+                                  >
+                                    {timeZones.map((timezone) => (
+                                      <MenuItem
+                                        key={timezone.value}
+                                        value={timezone.value}
+                                      >
+                                        {timezone.label}
+                                      </MenuItem>
+                                    ))}
+                                  </Select>
+                                </FormControl>
                               </FormControl>
                             </Box>
                           </Box>
@@ -403,13 +447,21 @@ export default function CreateNewPost() {
                                 variant="outlined"
                                 type="number"
                               >
-                               
+                                 <TextField
+                                id="outlined-basic"
+                                variant="outlined"
+                                size="small"
+                              />
                               </FormControl>
                             </Box>
                             <Box sx={{ width: "50%" }}>
                               <Typography>Time interval</Typography>
                               <FormControl sx={{ width: "100%" }}>
-                            
+                                 <TextField
+                                id="outlined-basic"
+                                variant="outlined"
+                                size="small"
+                              />
                               </FormControl>
                             </Box>
                           </Box>
@@ -437,7 +489,7 @@ export default function CreateNewPost() {
                   sx={{
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center", 
+                    alignItems: "center",
                   }}
                 >
                   <Switch />

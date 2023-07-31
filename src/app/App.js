@@ -48,8 +48,7 @@ function App() {
           <BrowserRouter>
             <FuseAuthorization
               userRole={user.role}
-              loginRedirectUrl={settingsConfig.loginRedirectUrl}
-            >
+              loginRedirectUrl={settingsConfig.loginRedirectUrl}>
               <SnackbarProvider
                 maxSnack={5}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}

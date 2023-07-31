@@ -39,12 +39,9 @@ mock.onPut(/\/api\/contacts\/[^/]+/).reply(({ url, data }) => {
 
 mock.onDelete(/\/api\/contacts\/[^/]+/).reply((config) => {
   const { id } = config.url.match(/\/api\/contacts\/(?<id>[^/]+)/).groups;
-
   _.remove(contactsDB, { id });
-
   return [200, id];
 });
-
 mock.onGet('/api/contacts/tags').reply((config) => {
   return [200, tagsDB];
 });

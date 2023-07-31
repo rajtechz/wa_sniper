@@ -137,15 +137,11 @@ class JwtService extends FuseUtils.EventEmitter {
       console.warn('access token expired');
       return false;
     }
-
     return true;
   };
-
   getAccessToken = () => {
     return window.localStorage.getItem('jwt_access_token');
   };
 }
-
 const instance = new JwtService();
-
 export default instance;

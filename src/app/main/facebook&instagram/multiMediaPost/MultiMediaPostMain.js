@@ -120,10 +120,10 @@ export default function MultiMediaPostMain() {
             </Button>
           </Box>
 
-          <Box sx={{ display: "flex" }}>
+          {/* <Box sx={{ display: "flex" }}>
             <Typography sx={{ color: "#000fff" }}>Facebook Poster/</Typography>
             <Typography>Multimedia postings</Typography>
-          </Box>
+          </Box> */}
         </Box>
         <Box sx={{ border: "1px solid gray ", mt: 2 }}>
           <Box sx={{ p: 5 }}>
