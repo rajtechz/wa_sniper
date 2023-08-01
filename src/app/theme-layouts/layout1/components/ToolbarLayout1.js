@@ -24,7 +24,8 @@ function ToolbarLayout1(props) {
   const toolbarTheme = useSelector(selectToolbarTheme);
 
   return (
-    <ThemeProvider theme={toolbarTheme}>
+    <>   
+     <ThemeProvider theme={toolbarTheme}>
       <AppBar
         id="fuse-toolbar"
         className={clsx('flex relative z-20 shadow-md', props.className)}
@@ -97,6 +98,8 @@ function ToolbarLayout1(props) {
         </Toolbar>
       </AppBar>
     </ThemeProvider>
+    </>
+
   );
 }
 

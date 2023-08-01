@@ -18,7 +18,6 @@ function Navigation(props) {
         dispatch(navbarCloseMobile());
       }
     }
-
     return (
       <FuseNavigation
         className={clsx('navigation', props.className)}

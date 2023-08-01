@@ -6,7 +6,11 @@ function NavigationSearch(props) {
   const { variant, className } = props;
   const navigation = useSelector(selectFlatNavigation);
 
-  return <FuseSearch className={className} variant={variant} navigation={navigation} />;
+  return(
+<>
+    {/* <FuseSearch className={className} variant={variant} navigation={navigation} />; */}
+</>
+    )
 }
 
 export default NavigationSearch;

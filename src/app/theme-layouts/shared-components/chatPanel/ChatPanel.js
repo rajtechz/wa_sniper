@@ -167,6 +167,7 @@ function ChatPanel(props) {
   }, [state, dispatch]);
 
   return (
+    <>
     <Root opened={state ? 1 : 0} {...handlers}>
       <div className="panel flex flex-col max-w-full" ref={ref}>
         <AppBar position="static" className="shadow-md">
@@ -221,6 +222,7 @@ function ChatPanel(props) {
         </Paper>
       </div>
     </Root>
+    </>
   );
 }
 

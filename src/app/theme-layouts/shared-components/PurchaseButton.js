@@ -4,7 +4,9 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function PurchaseButton({ className }) {
   return (
-    <Button
+   <>
+   
+   {/* <Button
       component="a"
       href="https://1.envato.market/zDGL6"
       target="_blank"
@@ -16,7 +18,8 @@ function PurchaseButton({ className }) {
       startIcon={<FuseSvgIcon size={16}>heroicons-outline:shopping-cart</FuseSvgIcon>}
     >
       Purchase FUSE React
-    </Button>
+    </Button> */}
+   </>
   );
 }
 

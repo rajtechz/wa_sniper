@@ -17,7 +17,8 @@ function PoweredByLinks() {
   };
 
   return (
-    <motion.div variants={container} initial="hidden" animate="show" className="flex items-center">
+  <>
+    {/* <motion.div variants={container} initial="hidden" animate="show" className="flex items-center">
       <Tooltip title="React" placement="top">
         <IconButton
           className="w-48 h-48 px-4"
@@ -100,7 +101,8 @@ function PoweredByLinks() {
           />
         </IconButton>
       </Tooltip>
-    </motion.div>
+    </motion.div> */}
+  </>
   );
 }
 

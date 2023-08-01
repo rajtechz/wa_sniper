@@ -66,6 +66,7 @@ function NavbarToggleFab(props) {
   const dispatch = useDispatch();
 
   return (
+   <>
     <Root
       title="Show Navigation"
       placement={config.navbar.position === 'left' ? 'right' : 'left'}
@@ -81,6 +82,7 @@ function NavbarToggleFab(props) {
         </FuseSvgIcon>
       </Fab>
     </Root>
+   </>
   );
 }
 

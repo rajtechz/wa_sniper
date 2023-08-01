@@ -5,18 +5,14 @@ import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
 import { showMessage } from 'app/store/fuse/messageSlice';
 import { logoutUser, setUser } from 'app/store/userSlice';
 import jwtService from './services/jwtService';
-
 const AuthContext = React.createContext();
-
 function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
   const [waitAuthCheck, setWaitAuthCheck] = useState(true);
   const dispatch = useDispatch();
-
   useEffect(() => {
     jwtService.on('onAutoLogin', () => {
       dispatch(showMessage({ message: 'Signing in with JWT' }));
-
       /**
        * Sign in and retrieve user data with stored token
        */
@@ -29,29 +25,21 @@ function AuthProvider({ children }) {
           pass(error.message);
         });
     });
-
     jwtService.on('onLogin', (user) => {
       success(user, 'Signed in');
     });
-
     jwtService.on('onLogout', () => {
       pass('Signed out');
-
       dispatch(logoutUser());
     });
-
     jwtService.on('onAutoLogout', (message) => {
       pass(message);
-
       dispatch(logoutUser());
     });
-
     jwtService.on('onNoAccessToken', () => {
       pass();
     });
-
     jwtService.init();
-
     function success(user, message) {
       if (message) {
         dispatch(showMessage({ message }));
@@ -65,24 +53,20 @@ function AuthProvider({ children }) {
         setIsAuthenticated(true);
       });
     }
-
     function pass(message) {
       if (message) {
         dispatch(showMessage({ message }));
       }
-
       setWaitAuthCheck(false);
       setIsAuthenticated(false);
     }
   }, [dispatch]);
-
   return waitAuthCheck ? (
     <FuseSplashScreen />
   ) : (
     <AuthContext.Provider value={{ isAuthenticated }}>{children}</AuthContext.Provider>
   );
 }
-
 function useAuth() {
   const context = React.useContext(AuthContext);
   if (context === undefined) {
@@ -90,5 +74,4 @@ function useAuth() {
   }
   return context;
 }
-
 export { AuthProvider, useAuth };

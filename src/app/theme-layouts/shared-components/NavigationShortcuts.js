@@ -14,13 +14,15 @@ function NavigationShortcuts(props) {
   }
 
   return (
-    <FuseShortcuts
-      className={className}
-      variant={variant}
-      navigation={navigation}
-      shortcuts={shortcuts}
-      onChange={handleShortcutsChange}
-    />
+    <>
+     <FuseShortcuts
+   className={className}
+   variant={variant}
+   navigation={navigation}
+   shortcuts={shortcuts}
+   onChange={handleShortcutsChange}
+ />
+    </>
   );
 }
 

@@ -44,10 +44,10 @@ const routes = [
     element: <Navigate to="dashboards/analytics" />,
     auth: settingsConfig.defaultAuth,
   },
-  {
-    path: "loading",
-    element: <FuseLoading />,
-  },
+  // {
+  //   path: "loading",
+  //   element: <FuseLoading />,
+  // },
   {
     path: "*",
     element: <Navigate to="pages/error/404" />,

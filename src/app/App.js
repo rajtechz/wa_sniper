@@ -44,11 +44,11 @@ function App() {
   return (
     <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>
       <FuseTheme theme={mainTheme} direction={langDirection}>
-        <AuthProvider>
+        {/* <AuthProvider> */}
           <BrowserRouter>
-            <FuseAuthorization
+            {/* <FuseAuthorization
               userRole={user.role}
-              loginRedirectUrl={settingsConfig.loginRedirectUrl}>
+              loginRedirectUrl={settingsConfig.loginRedirectUrl}> */}
               <SnackbarProvider
                 maxSnack={5}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
@@ -57,11 +57,17 @@ function App() {
                     "bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99",}}>
                 <FuseLayout layouts={themeLayouts} />
               </SnackbarProvider>
-            </FuseAuthorization>
+            {/* </FuseAuthorization> */}
           </BrowserRouter>
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </FuseTheme>
     </CacheProvider>
+
   );
 }
 export default withAppProviders(App)();
+
+
+
+
+

@@ -21,7 +21,6 @@ const Root = styled('div')(({ theme }) => ({
     }`,
   },
 }));
-
 const StyledContent = styled(FuseScrollbars)(({ theme }) => ({
   overscrollBehavior: 'contain',
   overflowX: 'hidden',
@@ -31,7 +30,6 @@ const StyledContent = styled(FuseScrollbars)(({ theme }) => ({
   backgroundSize: '100% 40px, 100% 10px',
   backgroundAttachment: 'local, scroll',
 }));
-
 function NavbarStyle1Content(props) {
   return (
     <Root className={clsx('flex flex-auto flex-col overflow-hidden h-full', props.className)}>
@@ -39,18 +37,13 @@ function NavbarStyle1Content(props) {
         <div className="flex flex-1 mx-4">
           <Logo />
         </div>
-
         <NavbarToggleButton className="w-40 h-40 p-0" />
       </div>
-
       <StyledContent
         className="flex flex-1 flex-col min-h-0"
-        option={{ suppressScrollX: true, wheelPropagation: false }}
-      >
+        option={{ suppressScrollX: true, wheelPropagation: false }}>
         <UserNavbarHeader />
-
         <Navigation layout="vertical" />
-
         <div className="flex flex-0 items-center justify-center py-48 opacity-10">
           <img className="w-full max-w-64" src="assets/images/logo/logo.svg" alt="footer logo" />
         </div>
@@ -58,5 +51,4 @@ function NavbarStyle1Content(props) {
     </Root>
   );
 }
-
 export default memo(NavbarStyle1Content);

@@ -13,6 +13,7 @@ function NavbarToggleButton(props) {
   const { config } = settings.layout;
 
   return (
+  <>
     <IconButton
       className={props.className}
       color="inherit"
@@ -33,6 +34,7 @@ function NavbarToggleButton(props) {
     >
       {props.children}
     </IconButton>
+  </>
   );
 }
 

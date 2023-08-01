@@ -34,8 +34,8 @@ function AdjustFontSize(props) {
   };
 
   return (
-    <div>
-      <IconButton
+    <>
+      {/* <IconButton
         className={clsx('w-40 h-40', props.className)}
         aria-controls="font-size-menu"
         aria-haspopup="true"
@@ -81,8 +81,8 @@ function AdjustFontSize(props) {
             onChangeCommitted={changeHtmlFontSize}
           />
         </div>
-      </Menu>
-    </div>
+      </Menu> */}
+    </>
   );
 }
 
