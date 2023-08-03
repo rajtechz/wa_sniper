@@ -22,35 +22,86 @@ import { FaFacebook } from 'react-icons/fa';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import axios from 'axios';
 import FacebookLogin from 'react-facebook-login';
+import InstagramLogin from 'react-instagram-login';
+// import urlInstance from "../../../../urlInstance/urlInstance"
 
 
 function AnalyticsDashboardApp() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [data, setData] = useState(null);
+  const [isInstagramLoggedIn, setIsInstagramLoggedIn] = useState(false);
+  const [instagramData, setInstagramData] = useState(null);
 
-  const handleLoginSuccess = (response) => {
-    if (response.status === 'connected') {
-      setIsLoggedIn(true);
-      // Make the second API call to show data for the dashboard page
 
-      axios
-        .get('your-second-api-endpoint')
-        .then((response) => {
-          setData(response.data);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
+  
+  // Handle Instagram login success
+  const handleInstagramLoginSuccess = async (response) => {
+    try {
+
+      console.log(responsee)
+      const url = '/api/auth/login/instagram'; 
+      const loginResponse = await axios.post(url, {
+        accessToken: response.access_token,
+        userID: response.user_id,
+      });
+
+      if (loginResponse) {
+        const userData = loginResponse.data;
+        setIsInstagramLoggedIn(true);
+        setInstagramData(userData);
+        console.log(userData);
+      } else {
+        console.log('Error in fetching Instagram details');
+      }
+    } catch (error) {
+      console.error('Error during Instagram login:', error);
+      alert('Error in fetching Instagram details');
     }
+  };
 
+  const handleLoginSuccess = async (response) => {
+    try {
+      event.preventDefault();
+      console.log(response, "11111111111")
+      const url = '/api/auth/login/facebook';
+      const loginResponse = axios
+        .post(url, {
+          name:response.name,
+          email:response.email,
+          data_access_expiration_time:response.data_access_expiration_time,
+          expiresIn:response.expiresIn,
+          graphDomain:response.graphDomain,
+          id:response.id,
+          picture: {
+            url: response.picture.url,
+            width: response.picture.width,
+            height: response.picture.height,
+          },
+          accessToken: response.accessToken,
+          userID:response.userID
+        });
+        console.log(loginResponse,"2222222222")
+      if (loginResponse) {
+        const userData = loginResponse.data;
+        setIsLoggedIn(true);
+        setData(userData);
+        console.log(userData,"3333333333");
+      } else {
+        console.log("Error")
+        alert("Error in fetching details")
+      }
+
+    } catch (error) {
+      console.log("error")
+    }
 
   };
 
-  useEffect(() => {
-    if (isLoggedIn && data !== null) {
-      window.location.reload();
-    }
-  }, [isLoggedIn, data]);
+  // useEffect(() => {
+  //   if (isLoggedIn && data !== null) {
+  //     window.location.reload();
+  //   }
+  // }, [isLoggedIn, data]);
 
   const dispatch = useDispatch();
   const widgets = useSelector(selectWidgets);
@@ -58,7 +109,7 @@ function AnalyticsDashboardApp() {
   useEffect(() => {
     dispatch(getWidgets());
   }, [dispatch]);
-  
+
   const buttonStyles = (backgroundColor, hoverColor) => ({
     color: 'white',
     backgroundColor: backgroundColor,
@@ -73,9 +124,10 @@ function AnalyticsDashboardApp() {
           <p className='h3 font-weight-bold text-capitalize'>You have not connected yet</p>
           {!isLoggedIn && (
             <FacebookLogin
-              appId="2031394480402743"
+              appId="1024463575609308"
               fields="name,email,picture"
               callback={handleLoginSuccess}
+
               render={(renderProps) => (
 
                 <button
@@ -91,6 +143,37 @@ function AnalyticsDashboardApp() {
               )}
             />
           )}
+
+
+
+          {isLoggedIn}
+        </div>
+        <div >
+          <p className='h3 font-weight-bold text-capitalize'>You have not connected yet</p>
+          {!isLoggedIn && (
+             <InstagramLogin
+             appId="1024463575609308"
+             onSuccess={handleInstagramLoginSuccess}
+             // Implement this function to handle login failures
+           
+
+              render={(renderProps) => (
+
+                <button
+                  variant="contained"
+                  startIcon={<FontAwesomeIcon icon={faFacebook} />}
+                  onClick={renderProps.onClick}
+                  style={buttonStyles('#3b5998', '#2d4373')}
+                  onMouseOver={(e) => e.target.style.backgroundColor = '#2d4373'}
+                  onMouseOut={(e) => e.target.style.backgroundColor = '#3b5998'}
+                >
+                  Login with Facebook
+                </button>
+              )}
+            />
+          )}
+
+          
 
           {isLoggedIn}
         </div>

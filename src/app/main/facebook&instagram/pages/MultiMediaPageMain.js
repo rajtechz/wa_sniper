@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Card,
@@ -8,17 +8,40 @@ import {
   Typography,
 } from "@mui/material";
 import { Avatar } from "@mui/material";
-
-const data = [
-  { id: 1, title: "Card 1", content: "This is the content of Card 1" },
-  { id: 2, title: "Card 2", content: "This is the content of Card 2" },
-  { id: 3, title: "Card 3", content: "This is the content of Card 3" },
-  { id: 4, title: "Card 4", content: "This is the content of Card 4" },
-  { id: 5, title: "Card 5", content: "This is the content of Card 5" },
-  { id: 6, title: "Card 6", content: "This is the content of Card 6" },
-];
-
+import axios from "axios";
+const URL = "http://127.0.0.1:5000/api/auth/getAllPages";
 export default function MultiMediaPageMain() {
+  const [facebookUsersData, setFacebookUsersData] = useState("");
+  const [pagesData, setPagesData] = useState([]);
+
+  useEffect(() => {
+    // Retrieve the token from local storage
+    const token = localStorage.getItem("authorization");
+
+    if (token) {
+      const config = {
+        headers: {
+          Authorization: `${token}`,
+        },
+      };
+
+      // Make the GET request
+      axios
+        .get(URL, config)
+        .then((response) => {
+          console.log(response);
+          setPagesData(response?.data);
+
+          setFacebookUsersData(response?.data?.facebookUsers);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    }
+  }, []);
+  console.log(pagesData?.pages);
+
+ 
   return (
     <>
       <Box p={2}>
@@ -36,12 +59,15 @@ export default function MultiMediaPageMain() {
               <Box>
                 <Avatar
                   alt="Profile Picture"
+                  src={facebookUsersData?.picture?.url}
                   sx={{ width: 50, height: 50, marginBottom: "8px" }}
                 />
               </Box>
               <Box>
-                <Typography variant="h5">User Name</Typography>
-                <Typography variant="body1">Email@example.com</Typography>
+                <Typography variant="h5">{facebookUsersData?.name}</Typography>
+                <Typography variant="body1">
+                  {facebookUsersData?.email}
+                </Typography>
               </Box>
             </Box>
           </Box>
@@ -55,26 +81,25 @@ export default function MultiMediaPageMain() {
           </Box>
         </Box>
         <Grid container spacing={3} mt={3}>
-          {data.map((item) => (
-            <Grid key={item.id} item xs={12} sm={6} md={4} lg={4}>
+            <Grid  item xs={12} sm={6} md={4} lg={4}>
               <Card sx={{ maxWidth: 345, borderRadius: 0 }}>
                 <CardContent>
                   <Box sx={{ display: "flex" }}>
-                    <Box>
+                    <Box sx={{width :"50%"}} >
+                      
                       <Typography gutterBottom variant="h5" component="div">
-                        {item.title}
+                        {pagesData?.pages?.name}
                       </Typography>
                     </Box>
                     <Box>
                       <Typography variant="body2" color="text.secondary">
-                        {item.content}
+                        hello
                       </Typography>
                     </Box>
                   </Box>
                 </CardContent>
               </Card>
             </Grid>
-          ))}
         </Grid>
       </Box>
     </>

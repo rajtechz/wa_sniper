@@ -123,7 +123,6 @@ function NavbarStyle3Content(props) {
             />
           </FuseScrollbars>
         </div>
-
         {selectedNavigation.length > 0 && (
           <StyledPanel
             id="fuse-navbar-panel"

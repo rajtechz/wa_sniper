@@ -53,5 +53,4 @@ const routes = [
     element: <Navigate to="pages/error/404" />,
   },
 ];
-
 export default routes;

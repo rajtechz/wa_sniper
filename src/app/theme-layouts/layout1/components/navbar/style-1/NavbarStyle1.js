@@ -1,31 +1,36 @@
-import Hidden from '@mui/material/Hidden';
-import { styled } from '@mui/material/styles';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import { useDispatch, useSelector } from 'react-redux';
-import { navbarCloseMobile, selectFuseNavbar } from 'app/store/fuse/navbarSlice';
-import { selectFuseCurrentLayoutConfig } from 'app/store/fuse/settingsSlice';
-import NavbarStyle1Content from './NavbarStyle1Content';
+import Hidden from "@mui/material/Hidden";
+import { styled } from "@mui/material/styles";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  navbarCloseMobile,
+  selectFuseNavbar,
+} from "app/store/fuse/navbarSlice";
+import { selectFuseCurrentLayoutConfig } from "app/store/fuse/settingsSlice";
+import NavbarStyle1Content from "./NavbarStyle1Content";
+import { Box } from "@mui/system";
+import { Typography } from "@mui/material";
 
 const navbarWidth = 280;
 
-const StyledNavBar = styled('div')(({ theme, open, position }) => ({
+const StyledNavBar = styled("div")(({ theme, open, position }) => ({
   minWidth: navbarWidth,
   width: navbarWidth,
   maxWidth: navbarWidth,
   ...(!open && {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    ...(position === 'left' && {
+    ...(position === "left" && {
       marginLeft: `-${navbarWidth}px`,
     }),
-    ...(position === 'right' && {
+    ...(position === "right" && {
       marginRight: `-${navbarWidth}px`,
     }),
   }),
   ...(open && {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -33,7 +38,7 @@ const StyledNavBar = styled('div')(({ theme, open, position }) => ({
 }));
 
 const StyledNavBarMobile = styled(SwipeableDrawer)(({ theme }) => ({
-  '& .MuiDrawer-paper': {
+  "& .MuiDrawer-paper": {
     minWidth: navbarWidth,
     width: navbarWidth,
     maxWidth: navbarWidth,
@@ -53,14 +58,15 @@ function NavbarStyle1(props) {
           open={navbar.open}
           position={config.navbar.position}
         >
-          <NavbarStyle1Content />
+          <NavbarStyle1Content /> 
+          
         </StyledNavBar>
       </Hidden>
 
       <Hidden lgUp>
         <StyledNavBarMobile
           classes={{
-            paper: 'flex-col flex-auto h-full',
+            paper: "flex-col flex-auto h-full",
           }}
           anchor={config.navbar.position}
           variant="temporary"

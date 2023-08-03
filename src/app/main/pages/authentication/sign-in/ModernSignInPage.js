@@ -86,7 +86,6 @@ function ModernSignInPage() {
                   />
                 )}
               />
-
               <Controller
                 name="password"
                 control={control}
@@ -143,7 +142,6 @@ function ModernSignInPage() {
                 </Typography>
                 <div className="flex-auto mt-px border-t" />
               </div>
-
               <div className="flex items-center mt-32 space-x-16">
                 <Button variant="outlined" className="flex-auto">
                   <FuseSvgIcon size={20} color="action">
@@ -163,8 +161,7 @@ function ModernSignInPage() {
               </div>
             </form>
           </div>
-        </div>
-
+        </div>             
         <Box
           className="relative hidden md:flex flex-auto items-center justify-center h-full p-64 lg:px-112 overflow-hidden"
           sx={{ backgroundColor: 'primary.main' }}
@@ -212,14 +209,12 @@ function ModernSignInPage() {
             </defs>
             <rect width="220" height="192" fill="url(#837c3e70-6c3a-44e6-8854-cc48c737b659)" />
           </Box>
-
           <div className="z-10 relative w-full max-w-2xl">
             <div className="text-7xl font-bold leading-none text-gray-100">
               <div>Welcome to</div>
               <div>Wa-sniper</div>
             </div>
             <div className="mt-24 text-lg tracking-tight leading-6 text-gray-400">
-             
             </div>
             <div className="flex items-center mt-32">
               <AvatarGroup

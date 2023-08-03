@@ -99,7 +99,6 @@ function ToolbarLayout1(props) {
       </AppBar>
     </ThemeProvider>
     </>
-
   );
 }
 
